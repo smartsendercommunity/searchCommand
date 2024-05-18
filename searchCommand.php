@@ -18,6 +18,9 @@ function send_bearer($url, $token, $type = "GET", $param = []){
   return $itog;
 }
 
+$result["state"] = true;
+$input = json_decode(file_get_contents("php://input"), true);
+
 if ($input["ssToken"] == NULL) {
   $result["state"] = false;
   $result["error"]["message"][] = "'ssToken' is missing";
